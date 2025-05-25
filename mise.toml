@@ -1,0 +1,8 @@
+[tools]
+chezmoi = "latest"
+kubectl = "latest"
+fd = "latest"
+lazygit = "latest"
+flux2 = "latest"
+k9s = "latest"
+direnv = "latest"
