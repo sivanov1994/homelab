@@ -17,6 +17,3 @@ spec:
           image: sissbruecker/linkding:1.40.0
           ports:
             - containerPort: 9090
-          env:
-            - name: LD_HOST
-              value: "0.0.0.0"
