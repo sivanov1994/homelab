@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: glance-config
+data:
+  glance.yml: |
+    pages:
+      - name: Home
+        columns:
+          - size: small
+            widgets:
+              - type: calendar
+
+          - size: full
+            widgets:
+              - type: hacker-news
+                limit: 15
+                collapse-after: 5
