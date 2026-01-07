@@ -2,5 +2,33 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "kubernetes": {
     "fileMatch": ["\\.yaml$"]
-  }
+  },
+  "flux": {
+    "fileMatch": ["(^|/)gotk-components\\.ya?ml$"]
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)gotk-components\\.ya?ml$"],
+      "matchStrings": [
+        "# Flux Version: (?<currentValue>.*?)\\n"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "fluxcd/flux2",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["fluxcd/flux2"],
+      "postUpgradeTasks": {
+        "commands": [
+          "bash -c 'flux install --export --components source-controller,kustomize-controller,helm-controller,notification-controller > {{{packageFileDir}}}/gotk-components.yaml'"
+        ],
+        "fileFilters": ["clusters/staging/flux-system/gotk-components.yaml"],
+        "executionMode": "branch"
+      }
+    }
+  ]
 }
