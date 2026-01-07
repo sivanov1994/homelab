@@ -4,9 +4,11 @@ metadata:
   name: linkding-data-pvc
   annotations:
     recurring-job.longhorn.io/source: '[{"name":"snapshot","isGroup":false}]'
+    longhorn.io/disk-selector: "storage"
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: longhorn
   resources:
     requests:
       storage: 1Gi
