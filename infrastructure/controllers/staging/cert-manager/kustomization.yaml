@@ -4,4 +4,4 @@ namespace: cert-manager
 resources:
   - ../../base/cert-manager/
   - cloudflare-token-secret.yaml
-#  - clusterissuer.yaml
+  - clusterissuer.yaml
