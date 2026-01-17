@@ -1,10 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
-  },
+  "extends": ["config:recommended"],
+  "schedule": ["after 3am and before 4am on wednesday"],
+  "enabledManagers": ["flux", "kubernetes"],
   "flux": {
-    "fileMatch": ["(^|/)gotk-components\\.ya?ml$"]
+    "fileMatch": [
+      "(^|/)infrastructure/.+\\.ya?ml$",
+      "(^|/)clusters/.+\\.ya?ml$"
+    ]
+  },
+  "kubernetes": {
+    "fileMatch": [
+      "(^|/)infrastructure/.+\\.ya?ml$",
+      "(^|/)clusters/.+\\.ya?ml$",
+      "(^|/)apps/.+\\.ya?ml$",
+      "(^|/)monitoring/.+\\.ya?ml$"
+    ]
   },
   "customManagers": [
     {
