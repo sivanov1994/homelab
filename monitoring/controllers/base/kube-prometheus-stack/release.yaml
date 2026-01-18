@@ -36,6 +36,9 @@ spec:
 
         ingressClassName: traefik
 
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-staging
+
         ## Hostnames.
         ## Must be provided if Ingress is enable.
         ##
@@ -43,9 +46,9 @@ spec:
           - grafana.simeonivanov.org
 
         ## TLS configuration for grafana Ingress
-        ## Secret must be manually created in the namespace
+        ## Certificate will be automatically created by cert-manager
         ##
         tls:
-          - secretName: grafana-tls-secret
+          - secretName: grafana-tls
             hosts:
               - grafana.simeonivanov.org
