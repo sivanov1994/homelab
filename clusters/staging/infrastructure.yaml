@@ -33,3 +33,7 @@ spec:
     name: flux-system
   path: ./infrastructure/storage/base
   prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
