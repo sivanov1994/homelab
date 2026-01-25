@@ -10,4 +10,3 @@ resources:
   # - ingress.yaml
 patchesStrategicMerge:
   - deployment-patch.yaml
-  - volume-backup-patch.yaml

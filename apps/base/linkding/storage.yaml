@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: linkding-data-pvc
   annotations:
-    recurring-job.longhorn.io/source: '[{"name":"snapshot","isGroup":false}]'
+    recurring-job.longhorn.io/source: '[{"name":"linkding-nightly-snapshot","isGroup":false}]'
     longhorn.io/disk-selector: "storage"
 spec:
   accessModes:
