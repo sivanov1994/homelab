@@ -6,7 +6,7 @@ resources:
   - cloudflare.yaml
   - cloudflare-secret.yaml
   - linkding-container-env-secret.yaml
-  # - database-secret.yaml  # Temporarily disabled for data export
+  - database-secret.yaml
   # - ingress.yaml
-# patchesStrategicMerge:  # Temporarily disabled for data export
-#   - deployment-patch.yaml
+patchesStrategicMerge:
+  - deployment-patch.yaml
