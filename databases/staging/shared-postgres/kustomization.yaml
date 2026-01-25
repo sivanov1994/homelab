@@ -5,3 +5,5 @@ resources:
   - namespace.yaml
   - cluster.yaml
   - superuser-secret.yaml
+  - linkding-database.yaml
+  - linkding-db-init-job.yaml

@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: linkding-db-app-user
+    namespace: shared-postgres
+type: kubernetes.io/basic-auth
+stringData:
+    username: ENC[AES256_GCM,data:lPriNza7ecQ1W7FP5Q==,iv:FDkChw1yB1PZpM5IbF32ucBUH2PIVYkuBmL61FklFBY=,tag:6rBt4wDAV53fXRNQBP/X1A==,type:str]
+    password: ENC[AES256_GCM,data:k0Ko3nTYMShm6bqnGPHFsQ==,iv:fAIUHSNxsdw4NcoiHfqLz50acEBH3e49SPCKk7th5fg=,tag:TGLJmHfpa1ABu7MuyE5NjQ==,type:str]
+sops:
+    age:
+        - recipient: age1ppc8crvqj46l02zshwrmngfq6ykr9y9zlt7sty4nwamr08r3yefswufxlm
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBBSURhL3pUVjdPUnBtUTVo
+            MzRDQ2dEZWg2WlZhdXBzV1A4c1lXei9uekdJClNQQ1pOT0o2MXRDWHZBUXU0czJB
+            UGg2N0JxYW5SK0RYNjAyZlBKQ3pwMHMKLS0tIHlyN2tOTmdhSjcvMnFiRGlLdzBL
+            QmZXYzFWNUt6YVVlNlVoQnZxZGI0QkEKWsLTuy9iQXBFg+c0dTX8OzNYQFXxskm2
+            vWE9nMuMGbiCuhNu08uuDdSmqQUqvl33eERjt3H+YagF4Dr0hAyJSg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-01-25T19:17:20Z"
+    mac: ENC[AES256_GCM,data:/p+Yf9GUfDg+s9OwVAXelIIYt1KZe3jVxhIu/TUv8Okevx7fS78HbuHi9EimW5M2DIih9LU12AYvQZxFTpZeIo54Q6gDWPVuecN9TvI2q6ecex+RwbNO6TGa6yQunC9WWDS5uJK+GBHCpIHONDuFGt6qAqvufl0YcIpBVwXbR+g=,iv:Ep4bgrVQ4IFoR7c8L0NbrjCHc3OASpQvjByLk4ggJ74=,tag:/gHkziFkn7iYwm7yQbS90w==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.11.0
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+    name: linkding
+    namespace: shared-postgres
+spec:
+    cluster:
+        name: postgres-cluster
+    name: linkding
+    owner: linkding_user
+    ensure: present
+sops:
+    age:
+        - recipient: age1ppc8crvqj46l02zshwrmngfq6ykr9y9zlt7sty4nwamr08r3yefswufxlm
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBBSURhL3pUVjdPUnBtUTVo
+            MzRDQ2dEZWg2WlZhdXBzV1A4c1lXei9uekdJClNQQ1pOT0o2MXRDWHZBUXU0czJB
+            UGg2N0JxYW5SK0RYNjAyZlBKQ3pwMHMKLS0tIHlyN2tOTmdhSjcvMnFiRGlLdzBL
+            QmZXYzFWNUt6YVVlNlVoQnZxZGI0QkEKWsLTuy9iQXBFg+c0dTX8OzNYQFXxskm2
+            vWE9nMuMGbiCuhNu08uuDdSmqQUqvl33eERjt3H+YagF4Dr0hAyJSg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-01-25T19:17:20Z"
+    mac: ENC[AES256_GCM,data:/p+Yf9GUfDg+s9OwVAXelIIYt1KZe3jVxhIu/TUv8Okevx7fS78HbuHi9EimW5M2DIih9LU12AYvQZxFTpZeIo54Q6gDWPVuecN9TvI2q6ecex+RwbNO6TGa6yQunC9WWDS5uJK+GBHCpIHONDuFGt6qAqvufl0YcIpBVwXbR+g=,iv:Ep4bgrVQ4IFoR7c8L0NbrjCHc3OASpQvjByLk4ggJ74=,tag:/gHkziFkn7iYwm7yQbS90w==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.11.0
