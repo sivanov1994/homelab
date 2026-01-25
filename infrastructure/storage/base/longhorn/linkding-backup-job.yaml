@@ -4,9 +4,9 @@ metadata:
   name: linkding-nightly-snapshot
   namespace: longhorn-system
 spec:
+  name: linkding-nightly-snapshot
   cron: "0 0 * * *"
-  task: "snapshot"
-  groups: []
+  task: snapshot
   retain: 3
   concurrency: 1
   labels:
