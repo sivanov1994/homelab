@@ -5,6 +5,7 @@ resources:
   - repository.yaml
   - release.yaml
   - snapshot.yaml
+  - linkding-backup-job.yaml
   - auth-secret.yaml
   - auth-middleware.yaml
   - ingress.yaml
