@@ -1,0 +1,54 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: commafeed-db-init
+  namespace: shared-postgres
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: psql
+        image: postgres:17.2
+        command:
+        - /bin/bash
+        - -c
+        - |
+          export PGPASSWORD="$POSTGRES_PASSWORD"
+
+          # Create user
+          psql -h postgres-cluster-rw -U postgres -d postgres -c "
+            DO \$\$
+            BEGIN
+              IF NOT EXISTS (SELECT FROM pg_catalog.pg_roles WHERE rolname = 'commafeed_user') THEN
+                CREATE USER commafeed_user WITH PASSWORD '$COMMAFEED_PASSWORD';
+              END IF;
+            END
+            \$\$;
+          "
+
+          # Create database
+          psql -h postgres-cluster-rw -U postgres -d postgres -c "
+            SELECT 'CREATE DATABASE commafeed OWNER commafeed_user'
+            WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'commafeed')\gexec
+          "
+
+          # Grant privileges
+          psql -h postgres-cluster-rw -U postgres -d commafeed -c "
+            GRANT ALL PRIVILEGES ON DATABASE commafeed TO commafeed_user;
+            GRANT ALL PRIVILEGES ON SCHEMA public TO commafeed_user;
+          "
+
+          echo "Database initialization complete!"
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-superuser
+              key: password
+        - name: COMMAFEED_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: commafeed-db-app-user
+              key: password
+

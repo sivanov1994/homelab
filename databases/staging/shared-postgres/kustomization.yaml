@@ -7,3 +7,5 @@ resources:
   - superuser-secret.yaml
   - linkding-database.yaml
   - linkding-db-init-job.yaml
+  - commafeed-database.yaml
+  - commafeed-db-init-job.yaml
