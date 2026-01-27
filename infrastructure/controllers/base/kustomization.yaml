@@ -1,9 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources: []
-# Infrastructure controllers will be added here:
-# - Cilium CNI
-# - cert-manager  
-# - Gateway API
+# Base infrastructure controllers (shared across environments):
+# - cert-manager
+# - Gateway API  
 # - CloudNativePG
 # - external-dns
