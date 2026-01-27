@@ -5,4 +5,5 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release.yaml
-  - recurring-jobs/snapshot-daily.yaml
+  # Recurring jobs will be added after Longhorn is installed
+  # - recurring-jobs/snapshot-daily.yaml
