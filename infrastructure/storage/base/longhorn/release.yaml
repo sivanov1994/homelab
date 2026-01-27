@@ -1,0 +1,39 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: longhorn
+  namespace: longhorn-system
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: longhorn
+      version: "1.7.2"
+      sourceRef:
+        kind: HelmRepository
+        name: longhorn
+        namespace: longhorn-system
+      interval: 12h
+  install:
+    createNamespace: false
+  values:
+    defaultSettings:
+      defaultReplicaCount: 2
+      backupTarget: ""  # You can configure S3/NFS later
+      backupTargetCredentialSecret: ""
+      createDefaultDiskLabeledNodes: true
+      defaultDataPath: /var/lib/longhorn
+      replicaSoftAntiAffinity: true
+      storageOverProvisioningPercentage: 200
+      storageMinimalAvailablePercentage: 25
+      upgradeChecker: true
+      defaultDataLocality: disabled
+      nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+      guaranteedInstanceManagerCPU: 12
+      orphanAutoDeletion: true
+    persistence:
+      defaultClass: true
+      defaultClassReplicaCount: 2
+      reclaimPolicy: Retain
+    ingress:
+      enabled: false
