@@ -4,9 +4,10 @@ resources:
   - cilium
   - cert-manager
   - gateway-api
+  - cloudnativepg
 # Infrastructure controllers:
 # ✅ Cilium CNI - Container networking, security, and observability
 # ✅ cert-manager - TLS certificate automation
 # ✅ Gateway API - Modern ingress/routing
-# - CloudNativePG - PostgreSQL operator
+# ✅ CloudNativePG - PostgreSQL operator
 # - external-dns - Automated DNS management
