@@ -5,9 +5,10 @@ resources:
   - cert-manager
   - gateway-api
   - cloudnativepg
+  - external-dns
 # Infrastructure controllers:
 # ✅ Cilium CNI - Container networking, security, and observability
 # ✅ cert-manager - TLS certificate automation
 # ✅ Gateway API - Modern ingress/routing
 # ✅ CloudNativePG - PostgreSQL operator
-# - external-dns - Automated DNS management
+# ✅ external-dns - Automated DNS management (Cloudflare)
