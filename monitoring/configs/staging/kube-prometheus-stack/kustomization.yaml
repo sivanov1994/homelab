@@ -4,7 +4,7 @@ namespace: monitoring
 resources:
   - grafana-admin-secret.yaml
   - grafana-tls-secret.yaml
-  - grafana-ingressroute-https.yaml
+  - grafana-ingress.yaml
 configMapGenerator:
   - name: grafana-dashboards
     files:

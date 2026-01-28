@@ -9,4 +9,4 @@ resources:
   - ui/auth-secret.yaml
   - ui/longhorn-tls-secret.yaml
   - ui/middleware.yaml
-  - ui/ingressroute-https.yaml
+  - ui/ingress.yaml
