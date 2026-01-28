@@ -13,6 +13,10 @@ spec:
   path: ./infrastructure/storage/staging
   prune: true
   wait: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   healthChecks:
     - apiVersion: apps/v1
       kind: DaemonSet
