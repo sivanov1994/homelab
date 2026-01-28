@@ -8,4 +8,4 @@ resources:
   - recurring-jobs/snapshot-daily.yaml
   - ui/auth-secret.yaml
   - ui/middleware.yaml
-  - ui/ingressroute.yaml
+  - ui/ingressroute-http.yaml
