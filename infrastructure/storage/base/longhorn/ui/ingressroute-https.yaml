@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`longhorn2.simeonivanov.org`)
+    - match: Host(`longhorn.simeonivanov.org`)
       kind: Rule
       middlewares:
         - name: longhorn-basic-auth
@@ -16,4 +16,4 @@ spec:
         - name: longhorn-frontend
           port: 80
   tls:
-    certResolver: letsencrypt
+    secretName: longhorn-internal-tls

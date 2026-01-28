@@ -3,11 +3,10 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - grafana-admin-secret.yaml
-  - grafana-https-redirect.yaml
-  - grafana-ingressroute-http.yaml
+  - grafana-tls-secret.yaml
   - grafana-ingressroute-https.yaml
 configMapGenerator:
-  - name: grafana-dotdc-dashboards
+  - name: grafana-dashboards
     files:
       - dashboards/k8s-views-global.json
       - dashboards/k8s-views-nodes.json
