@@ -6,9 +6,11 @@ resources:
   - gateway-api
   - cloudnativepg
   - external-dns
+  - traefik
 # Infrastructure controllers:
 # ✅ Cilium CNI - Container networking, security, and observability
 # ✅ cert-manager - TLS certificate automation
 # ✅ Gateway API - Modern ingress/routing
 # ✅ CloudNativePG - PostgreSQL operator
 # ✅ external-dns - Automated DNS management (Cloudflare)
+# ✅ Traefik - Ingress controller with authentication support

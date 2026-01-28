@@ -6,3 +6,6 @@ resources:
   - repository.yaml
   - release.yaml
   - recurring-jobs/snapshot-daily.yaml
+  - ui/auth-secret.yaml
+  - ui/middleware.yaml
+  - ui/ingressroute.yaml
