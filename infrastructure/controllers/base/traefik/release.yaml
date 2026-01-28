@@ -69,7 +69,7 @@ spec:
         enabled: true
 
     env:
-      - name: CLOUDFLARE_API_TOKEN
+      - name: CLOUDFLARE_DNS_API_TOKEN
         valueFrom:
           secretKeyRef:
             name: cloudflare-api-token
