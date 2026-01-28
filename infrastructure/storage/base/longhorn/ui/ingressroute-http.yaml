@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`longhorn.simeonivanov.org`)
+    - match: Host(`longhorn2.simeonivanov.org`)
       kind: Rule
       middlewares:
         - name: longhorn-https-redirect
