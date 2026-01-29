@@ -17,6 +17,6 @@ data:
       service: http://authentik.authentik.svc.cluster.local:9000
 
     - hostname: pgadmin.simeonivanov.org
-      service: http://pgadmin.pgadmin.svc.cluster.local:80
+      service: http://authentik-outpost-pgadmin.pgadmin.svc.cluster.local:9000
 
     - service: http_status:404

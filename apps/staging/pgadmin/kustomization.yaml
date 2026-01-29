@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: pgadmin
 resources:
   - ../../base/pgadmin
+  - authentik-outpost.yaml
