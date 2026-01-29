@@ -1,0 +1,30 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pgadmin-db
+  namespace: pgadmin
+spec:
+  description: Postgres cluster for pgAdmin
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.2
+  instances: 2
+
+  inheritedMetadata:
+    labels:
+      app: pgadmin-database
+
+  monitoring:
+    enablePodMonitor: true
+
+  bootstrap:
+    initdb:
+      database: pgadmin
+      owner: pgadmin
+      secret:
+        name: pgadmin-db-creds
+
+  resources:
+    requests:
+      memory: 256Mi
+
+  storage:
+    size: 3Gi

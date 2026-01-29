@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgadmin-configmap
+  namespace: pgadmin
+data:
+  PGADMIN_CONFIG_SERVER_MODE: "True"
+  PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+  PGADMIN_LISTEN_PORT: "80"
+  PGADMIN_SERVER_JSON_FILE: "/pgadmin4/servers.json"

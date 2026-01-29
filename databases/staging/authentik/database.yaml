@@ -1,0 +1,30 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: authentik-db
+  namespace: authentik
+spec:
+  description: Postgres cluster for Authentik
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.2
+  instances: 2
+
+  inheritedMetadata:
+    labels:
+      app: authentik-database
+
+  monitoring:
+    enablePodMonitor: true
+
+  bootstrap:
+    initdb:
+      database: authentik
+      owner: authentik
+      secret:
+        name: authentik-db-creds
+
+  resources:
+    requests:
+      memory: 256Mi
+
+  storage:
+    size: 5Gi
