@@ -3,4 +3,6 @@ kind: Kustomization
 namespace: authentik
 resources:
   - ../../base/authentik
-  - cloudflare.yaml
+  - cloudflare-deployment.yaml
+  - cloudflare-configmap.yaml
+  - cloudflare-secret.yaml
